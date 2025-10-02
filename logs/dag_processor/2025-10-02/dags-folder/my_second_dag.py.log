@@ -1,0 +1,2 @@
+{"timestamp":"2025-10-02T06:30:55.611556Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/my_second_dag.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-10-02T06:30:55.618274Z","level":"warning","event":"The `airflow.utils.timezone.datetime` attribute is deprecated. Please use `'airflow.sdk.timezone.datetime'`.","category":"DeprecatedImportWarning","filename":"/opt/airflow/dags/my_second_dag.py","lineno":8,"logger":"py.warnings"}
