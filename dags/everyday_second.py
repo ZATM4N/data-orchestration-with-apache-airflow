@@ -10,7 +10,7 @@ def _hello():
 with DAG(
     "everyday_second",
     start_date=timezone.datetime(2025, 10, 2),
-    schedule="30 17 1,16 * *",
+    schedule="0 0 * * *",
 ):
 
     hello = PythonOperator(
