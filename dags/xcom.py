@@ -14,7 +14,7 @@ def _pull(ti):
     animal = ti.xcom_pull(task_ids="push", key="animal")
     print(f"This is a {animal}!")
 
-    another_animal = ti.xcom_pull(task_ids="push", key="return_vaule")
+    another_animal = ti.xcom_pull(task_ids="push", key="return_value")
     print(f"This is a {another_animal}!")
 
 
