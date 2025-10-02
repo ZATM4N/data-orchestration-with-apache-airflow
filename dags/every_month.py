@@ -8,7 +8,7 @@ def _hello():
     print("Hello")
 
 with DAG(
-    "everyday",
+    "everyday_month",
     start_date=timezone.datetime(2025, 10, 2),
     schedule="15 14 * * *",
 ):
