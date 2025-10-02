@@ -11,14 +11,14 @@ with DAG(
     schedule="15 14 * * *",
 ):
 
-hello = PythonOperator(
-    task_id="hello",
-    python_callable=_hello,
-)
+    hello = PythonOperator(
+        task_id="hello",
+        python_callable=_hello,
+    )
 
-world = BashOperator(
-    task_id="world",
-    bash_command="echo 'world'",
-)
+    world = BashOperator(
+        task_id="world",
+        bash_command="echo 'world'",
+    )
 
-hello >> world
+    hello >> world
