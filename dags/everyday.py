@@ -4,6 +4,8 @@ from airflow.providers.standard.operators.empty import EmptyOperator
 from airflow.providers.standard.operators.bash import BashOperator
 from airflow.providers.standard.operators.python import PythonOperator
 
+def _hello():
+    print("Hello")
 
 with DAG(
     "everyday",
