@@ -11,7 +11,7 @@ with DAG(
     schedule="15 14 * * *",
 ):
 
-้hello = PythonOperator(
+hello = PythonOperator(
     task_id="hello",
     python_callable=_hello,
 )
