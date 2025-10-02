@@ -18,11 +18,11 @@ def _list_tables():
 
 def _list_customers():
     hook = PostgresHook(postgres_conn_id="my_postgres_connection")
-    tables = hook.get_records(
+    data = hook.get_records(
         "SELECT * FROM customers;"
     )
-    logging.info(tables)
-    return tables
+    logging.info(data)
+    return data
 
 with DAG(
     dag_id="connection_and_hook",
