@@ -1,6 +1,6 @@
 from airflow.sdk import DAG
 from airflow.utils import timezone
-from airflow.providers.standard.operator.empty import EmptyOperator
+from airflow.providers.standard.operators.empty import EmptyOperator
 
 
 with DAG(
