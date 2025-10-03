@@ -5,7 +5,7 @@ from airflow.providers.standard.operators.empty import EmptyOperator
 
 with DAG(
     "dashboard",
-    start_date=timezone.datetime(2025, 10, 2),
+    start_date=timezone.datetime(2025, 1, 1),
     schedule=None,
 ):
     start = EmptyOperator(task_id="start")
