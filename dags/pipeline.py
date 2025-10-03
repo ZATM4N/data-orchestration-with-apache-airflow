@@ -37,7 +37,7 @@ with DAG(
 
     transform_data = PythonOperator(
         task_id="transform_data",
-        python_callable=_transform_data,
+        python_callable=_transform_data(customers_df=extract_customer_data),
     )
 
     end = EmptyOperator(task_id="end")
