@@ -16,7 +16,22 @@ def _extract_customer_data():
     logging.info(customers_df)
     return customers_df
 
-def _transform_data(ti):
+def _extract_order_data():
+    pg_hook = PostgresHook(postgres_conn_id="my_postgres_connection")
+    order_df = pg_hook.get_df(
+        "SELECT * FROM orders;"
+    )
+    logging.info(order_df)
+
+    # กำหนดที่อยู่และชื่อไฟล์ที่จะบันทึก
+    order_output_path = "/tmp/orders.parquet"
+
+    logging.info(f"Saving extracted data to {order_output_path}")
+    order_df.to_parquet(order_output_path, index=False)
+
+    return order_df
+
+def _transform_customer_data(ti):
     # customers_df = pd.read_csv(...)
     # Format the datetime from "12 May 1990" to "1990-05-12"
 
@@ -26,25 +41,40 @@ def _transform_data(ti):
     logging.info(customers_df)
 
     # กำหนดที่อยู่และชื่อไฟล์ที่จะบันทึก
-    output_path = "/tmp/customers.parquet"
+    customer_output_path = "/tmp/customers.parquet"
 
     # บันทึก DataFrame เป็นไฟล์ Parquet
-    logging.info(f"Saving transformed data to {output_path}")
-    customers_df.to_parquet(output_path, index=False)
+    logging.info(f"Saving transformed data to {customer_output_path}")
+    customers_df.to_parquet(customer_output_path, index=False)
 
     # คืนค่า Path ของไฟล์ออกไป
-    return output_path
+    return customer_output_path
 
 def _load_data_to_landing(ti):
-    output_path = ti.xcom_pull(task_ids='transform_data')
+    customer_output_path = ti.xcom_pull(task_ids='transform_customer_data')
     
     s3_hook = S3Hook(aws_conn_id="my_aws_connection")
     s3_key = "Golf/2025-10-03/customers.parquet"
     s3_bucket="pea-watt"
-    logging.info(f"Uploading {output_path} to S3 bucket {s3_bucket} with key '{s3_key}'")
+    logging.info(f"Uploading {customer_output_path} to S3 bucket {s3_bucket} with key '{s3_key}'")
 
     s3_hook.load_file(
-        filename=output_path,
+        filename=customer_output_path,
+        key=s3_key,
+        bucket_name=s3_bucket,
+        replace=True
+    )
+    logging.info("File upload successful.")
+
+    order_output_path = ti.xcom_pull(task_ids='extract_order_data')
+    
+    s3_hook = S3Hook(aws_conn_id="my_aws_connection")
+    s3_key = "Golf/2025-10-03/orders.parquet"
+    s3_bucket="pea-watt"
+    logging.info(f"Uploading {order_output_path} to S3 bucket {s3_bucket} with key '{s3_key}'")
+
+    s3_hook.load_file(
+        filename=order_output_path,
         key=s3_key,
         bucket_name=s3_bucket,
         replace=True
@@ -63,9 +93,14 @@ with DAG(
         python_callable=_extract_customer_data,
     )
 
-    transform_data = PythonOperator(
-        task_id="transform_data",
-        python_callable=_transform_data,
+    extract_order_data = PythonOperator(
+        task_id="extract_order_data",
+        python_callable=_extract_order_data,
+    )
+
+    transform_customer_data = PythonOperator(
+        task_id="transform_customer_data",
+        python_callable=_transform_customer_data,
     )
 
     load_data_to_landing = PythonOperator(
@@ -75,4 +110,5 @@ with DAG(
 
     end = EmptyOperator(task_id="end")
 
-    start >> extract_customer_data >> transform_data >> load_data_to_landing >> end
+    start >> extract_customer_data >> transform_customer_data >> load_data_to_landing >> end
+    extract_order_data >> load_data_to_landing
