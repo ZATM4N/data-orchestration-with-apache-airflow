@@ -9,7 +9,7 @@ from airflow.sdk import DAG
 
 def _list_customers():
     pg_hook = PostgresHook(postgres_conn_id="my_postgres_connection")
-    customers_df = hook.get_df(
+    customers_df = pg_hook.get_df(
         "SELECT * FROM customers;"
     )
     logging.info(customers_df)

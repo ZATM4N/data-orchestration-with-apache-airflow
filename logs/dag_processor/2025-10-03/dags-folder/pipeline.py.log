@@ -8,3 +8,6 @@
 {"timestamp":"2025-10-03T07:34:36.327340Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
 {"timestamp":"2025-10-03T07:34:38.824539Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
 {"timestamp":"2025-10-03T07:34:42.330914Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-10-03T07:35:13.732415Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-10-03T07:35:45.115726Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-10-03T07:35:58.687968Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
