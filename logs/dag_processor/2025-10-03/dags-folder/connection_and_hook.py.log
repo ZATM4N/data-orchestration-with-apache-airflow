@@ -335,3 +335,10 @@
 {"timestamp":"2025-10-03T07:53:17.148533Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/connection_and_hook.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
 {"timestamp":"2025-10-03T07:53:47.750489Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/connection_and_hook.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
 {"timestamp":"2025-10-03T07:54:18.014794Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/connection_and_hook.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-10-03T07:54:48.305259Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/connection_and_hook.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-10-03T07:55:18.605921Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/connection_and_hook.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-10-03T07:55:48.910002Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/connection_and_hook.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-10-03T07:56:19.116797Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/connection_and_hook.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-10-03T07:56:49.321214Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/connection_and_hook.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-10-03T07:57:19.532000Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/connection_and_hook.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-10-03T07:57:50.029356Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/connection_and_hook.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
