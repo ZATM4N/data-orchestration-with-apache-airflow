@@ -5,6 +5,7 @@ import pandas as pd
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 from airflow.providers.standard.operators.empty import EmptyOperator
 from airflow.providers.standard.operators.python import PythonOperator
+from airflow.providers.amazon.aws.hooks.s3 import S3Hook
 from airflow.sdk import DAG
 
 def _extract_customer_data():
