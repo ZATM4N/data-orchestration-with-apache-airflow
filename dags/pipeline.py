@@ -19,7 +19,7 @@ def _transform_data():
     #customers_df = pd.read_csv(...)
     # Format the datetime from "12 May 1990" to "1990-05-12"
     customers_df["birthdate"] = pd.to_datetime(df["birthdate"], dayfirst=True)    
-    
+
     logging.info(customers_df)
     return customers_df
 
@@ -42,4 +42,4 @@ with DAG(
 
     end = EmptyOperator(task_id="end")
 
-    start >> list_customers >> end
+    start >> extract_customer_data >> transform_data >> end
