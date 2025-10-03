@@ -6,7 +6,7 @@ from airflow.sdk import DAG
 
 default_args = {
     "retries": 3,
-    "retry_delay": timedelta(seconds=5),
+    "retry_delay": timedelta(seconds=30),
 }
 with DAG(
     "retry",
