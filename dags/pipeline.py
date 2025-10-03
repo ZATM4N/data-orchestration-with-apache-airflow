@@ -41,12 +41,15 @@ def _load_data_to_landing(ti):
     s3_hook = S3Hook(aws_conn_id="my_aws_connection")
     s3_key = "Golf/2025-10-03/customers.parquet"
     s3_bucket="pea-watt"
+    logging.info(f"Uploading {output_path} to S3 bucket {s3_bucket} with key '{s3_key}'")
+
     s3_hook.load_file(
         filename=output_path,
         key=s3_key,
         bucket_name=s3_bucket,
         replace=True
     )
+    logging.info("File upload successful.")
 
 with DAG(
     dag_id="pipeline",
