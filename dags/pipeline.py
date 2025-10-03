@@ -18,7 +18,7 @@ def _extract_customer_data():
 def _transform_data():
     #customers_df = pd.read_csv(...)
     # Format the datetime from "12 May 1990" to "1990-05-12"
-    customers_df["birthdate"] = pd.to_datetime(df["birthdate"], dayfirst=True)    
+    customers_df["birthdate"] = pd.to_datetime(customers_df["birthdate"], dayfirst=True)    
 
     logging.info(customers_df)
     return customers_df
