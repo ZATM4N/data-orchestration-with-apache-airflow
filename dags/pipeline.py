@@ -15,11 +15,13 @@ def _extract_customer_data():
     logging.info(customers_df)
     return customers_df
 
-def _transform_data(customers_df: pd.DataFrame):
+def _transform_data(ti):
     #customers_df = pd.read_csv(...)
     # Format the datetime from "12 May 1990" to "1990-05-12"
-    customers_df["birthdate"] = pd.to_datetime(customers_df["birthdate"], dayfirst=True)    
 
+    # ดึงค่าจาก XCom ของ task ก่อนหน้า
+    customers_df = ti.xcom_pull(task_ids='extract_customer_data')
+    customers_df["birthdate"] = pd.to_datetime(customers_df["birthdate"], dayfirst=True)    
     logging.info(customers_df)
     return customers_df
 
@@ -37,7 +39,7 @@ with DAG(
 
     transform_data = PythonOperator(
         task_id="transform_data",
-        python_callable=_transform_data(customers_df=extract_customer_data),
+        python_callable=_transform_data,
     )
 
     end = EmptyOperator(task_id="end")
