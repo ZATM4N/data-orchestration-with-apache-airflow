@@ -225,3 +225,4 @@
 {"timestamp":"2025-10-03T06:56:27.899826Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/xcom_taskflow.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
 {"timestamp":"2025-10-03T06:56:58.705649Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/xcom_taskflow.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
 {"timestamp":"2025-10-03T06:57:29.513678Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/xcom_taskflow.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-10-03T06:58:00.336987Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/xcom_taskflow.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
