@@ -13,4 +13,7 @@ with DAG(
     start_date=datetime(2025, 10, 1),
     default_args=default_args,
 ):
-    task_1 = BashOperator(task_id="task_1", bash_command="echo I get 3 retries! && False")
+    task_1 = BashOperator(task_id="task_1", 
+    bash_command="echo I get 5 retries! && False",
+    retries=5,
+    retry_delay-timedelta(seconds=5),)
